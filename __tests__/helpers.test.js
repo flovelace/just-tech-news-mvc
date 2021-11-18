@@ -1,0 +1,25 @@
+const {format_date, format_plural} = require('../utils/helpers');
+
+test('format_date() returns a date string', () => {
+    const date = new Date('2020-03-20 16:12:03');
+  
+    expect(format_date(date)).toBe('3/20/2020');
+  });
+
+  test('format_plural() returns a plural word', () => {
+    const word1 = format_plural('tiger', 1);
+    const word2 = format_plural('lion', 2);
+  
+    expect(word1).toBe('tiger');
+    expect(word2).toBe('lions');
+  });
+
+  test('format_url() returns a simplified URL string', () => {
+    const url1 = format_url('http://www.bigcoollink.com/pages/1/');
+    const url2 = format_url('http://www.chrissucks.net/news/today/');
+    const url3 = format_url('http://www.yummyfood.com/recipes/italian/meatballs/');
+
+    expect(url1).toBe('bigcoollink.com');
+    expect(url2).toBe('chrissucks.net');
+    expect(url3).toBe('yummyfood.com');
+  });
